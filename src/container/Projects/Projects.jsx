@@ -6,7 +6,6 @@ import { AppWrap, MotionWrap } from '../../wrapper'
 import { urlFor, client } from '../../client'
 
 import './Projects.scss'
-import { debugPort } from 'process'
 
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState('All')
