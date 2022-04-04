@@ -20,10 +20,8 @@ import vue from '../assets/vue.png';
 
 import profile from '../assets/profile.png';
 import circle from '../assets/circle.svg';
-import nb from '../assets/nb.png';
 
-export default {
-  email,
+let images = { email,
   mobile,
   api,
   cpp,
@@ -44,8 +42,7 @@ export default {
   vue,
  
   profile,
-  circle,
-  
-  nb
-  
-};
+  circle
+}
+
+export default images;

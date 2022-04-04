@@ -3,7 +3,6 @@ import React, {useState } from 'react'
 import { images } from '../../constants'
 import { AppWrap, MotionWrap } from '../../wrapper'
 import { client } from '../../client'
-import { HiPhoneOutgoing, HiOutlineMail} from 'react-icons/hi'
 import './Footer.scss'
 
 
