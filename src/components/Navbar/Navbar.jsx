@@ -3,6 +3,12 @@ import { HiMenuAlt4, HiX } from 'react-icons/hi';
 import { motion } from 'framer-motion';
 
 import './Navbar.scss'
+
+const variants = {
+    open: { opacity: 1, x: 0},
+    closed: { opacity: 0, x: "+100%"},
+}
+
 const Navbar = () => {
     const [toggle, setToggle] = useState(false);
 
@@ -24,10 +30,11 @@ const Navbar = () => {
                 <HiMenuAlt4 onClick={() => setToggle(true)} />
 
                 {
-                    toggle && (
+                    (
                         <motion.div
-                            whileInView={{ x: [300, 0] }}
-                            transition={{ duration: 0.85, ease: 'easeOut' }}
+                            animate={toggle ? "open" : "closed"}
+                            variants={variants}
+                            initial={false}
                         >
                             <HiX onClick={() => setToggle(false)} />
                             <ul className="app__navbar-links">
