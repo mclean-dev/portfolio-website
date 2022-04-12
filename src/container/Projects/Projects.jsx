@@ -3,7 +3,7 @@ import { AiFillEye, AiFillGithub } from 'react-icons/ai'
 import { motion } from 'framer-motion'
 
 import { AppWrap, MotionWrap } from '../../wrapper'
-import { urlFor, client } from '../../client'
+import axios from 'axios'
 
 import './Projects.scss'
 
@@ -15,12 +15,12 @@ const Projects = () => {
 
   useEffect(() => {
     const query = '*[_type == "projects"]';
-
-    client.fetch(query)
-    .then((data) => {
-      setProjects(data);
-      setFilterProjects(data);
+    axios.get('/.netlify/functions/getter', { params: { "query": `${query}`  } })
+    .then((data) => {      
+      setProjects(data.data);
+      setFilterProjects(data.data);
     })
+ 
   
   }, [])
   
@@ -64,7 +64,7 @@ const Projects = () => {
         {filterProjects.map((project, index) => (
           <div className="app__project-item app__flex" key={index}>
             <div className="app__project-img app__flex">
-              <img src={urlFor(project.imgUrl)} alt={project.name} />
+              <img src={project.image} alt={project.name} />
               <motion.div
                 whileInView={{ opacity: [1, 0] }}
                 whileHover={{opacity: [0, 1]}}
