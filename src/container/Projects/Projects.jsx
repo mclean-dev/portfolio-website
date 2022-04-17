@@ -98,6 +98,18 @@ const Projects = () => {
             <div className="app__project-content app__flex">
               <h4 className="bold-text">{project.title}</h4>
               <p className="p-text" style={{ marginTop: 10 }}>{project.description}</p>
+              <div className="app__project-content-links">
+              <a href={project.projectLink} target="_blank" rel="noreferrer">
+                  <div className="app__flex">
+                    <AiFillEye />
+                  </div>
+                </a>
+                <a href={project.codeLink} target="_blank" rel="noreferrer">
+                  <div className="app__flex">
+                    <AiFillGithub />
+                  </div>
+                </a>
+              </div>
               <div className="app__project-tag app__flex">
                 <p className="p-text">{project.tags[0]}</p>
               </div>
