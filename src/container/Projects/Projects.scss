@@ -29,6 +29,7 @@
         }
 
         @media screen and (min-width: 2000px) {
+            font-size: 0.9rem;
             padding: 1rem 2rem;
             border-radius:  0.85rem;            
         }
@@ -45,10 +46,10 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
+    align-items: stretch;
 
     .app__project-item {
-        width: 270px;
+        width: 26%;
         flex-direction: column;
         margin: 2rem;
         padding: 1rem;
@@ -61,7 +62,6 @@
             box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
         }
         @media screen and (min-width: 2000px) {
-            height: 470px;
             padding: 1.25rem;
             border-radius: 0.75rem;
             
@@ -86,7 +86,7 @@
         }
 
         @media screen and (min-width: 2000px) {
-            height: 350px;
+            height: 300px;
             
         }
     }

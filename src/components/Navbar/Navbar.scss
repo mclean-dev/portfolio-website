@@ -29,12 +29,15 @@
     padding: 0.65rem;
     border-radius: 1.25rem;
     cursor: pointer;
+    transition: all 0.2s ease-in-out;
 
     p {
         font-family: 'Bungee';
         font-weight: 600;
         color: var(--gray-color);
-
+        @media screen and (min-width: 2000px) {
+            font-size: 1rem;
+        }
         
     }
     

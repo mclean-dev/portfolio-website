@@ -39,10 +39,14 @@
         a {
             text-decoration: none;
             font-weight: 600;
+            @media screen and (min-width: 2000px) {
+                font-size: 1rem;
+            }
         }
 
         &:hover {
             box-shadow: 0 0 25px #fef4f5;
+            
         }
 
         @media screen and (max-width: 450px) {
@@ -108,6 +112,10 @@
     @media screen and (max-width: 768px) {
         width: 100%;
         margin: 1rem 0;
+        
+    }
+    @media screen and (min-width: 2000px) {
+        width: 45%;
         
     }
 }
