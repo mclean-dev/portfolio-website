@@ -2,6 +2,8 @@
 
 # dependencies
 /node_modules
+/frontend-react/node_modules
+/backend-sanity/node_modules
 /.pnp
 .pnp.js
 
@@ -9,7 +11,7 @@
 /coverage
 
 # production
-/build
+/frontend-react/build
 
 # misc
 .DS_Store
