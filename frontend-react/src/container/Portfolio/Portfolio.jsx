@@ -5,26 +5,26 @@ import { motion } from 'framer-motion'
 import { AppWrap, MotionWrap } from '../../wrapper'
 import axios from 'axios'
 
-import './Projects.scss'
+import './Portfolio.scss'
 
-const Projects = () => {
+const Portfolio = () => {
   const [activeFilter, setActiveFilter] = useState('All')
   const [animateCard, setAnimateCard] = useState([{ y: 0, opacity: 1 }])
-  const [projects, setProjects] = useState([])
-  const [filterProjects, setFilterProjects] = useState([])
+  const [portfolio, setPortfolio] = useState([])
+  const [filterPortfolio, setFilterPortfolio] = useState([])
 
   useEffect(() => {
-    const query = '*[_type == "projects"]';
+    const query = '*[_type == "portfolio"]';
     axios.get('/.netlify/functions/getter', { params: { "query": `${query}`  } })
     .then((data) => {      
-      setProjects(data.data);
-      setFilterProjects(data.data);
+      setPortfolio(data.data);
+      setFilterPortfolio(data.data);
     })
  
   
   }, [])
   
-  const handleProjectFilter = (item) => {
+  const handlePortfolioFilter = (item) => {
     setActiveFilter(item);
     setAnimateCard([{y: 100, opacity: 0}]);
 
@@ -32,10 +32,10 @@ const Projects = () => {
       setAnimateCard([{y: 0, opacity: 1}]);
 
       if (item === 'All') {
-        setFilterProjects(projects);
+        setFilterPortfolio(portfolio);
  
       } else {
-        setFilterProjects(projects.filter((projects) => projects.tags.includes(item))); 
+        setFilterPortfolio(portfolio.filter((portfolio) => portfolio.tags.includes(item))); 
       }
     }, 500)
 
@@ -44,12 +44,12 @@ const Projects = () => {
     <>
       <h2 className='head-text'>My Creative <span>Portfolio</span></h2>
 
-      <div className="app__project-filter">
+      <div className="app__portfolio-filter">
         {['UI/UX', 'Web App', 'Mobile App', 'React JS', 'All'].map((item, index) => (
           <div
             key={index}
-            onClick={() => handleProjectFilter(item)}
-            className={`app__project-filter-item app__flex p-text ${activeFilter === item ? 'item-active' : ''}`}
+            onClick={() => handlePortfolioFilter(item)}
+            className={`app__portfolio-filter-item app__flex p-text ${activeFilter === item ? 'item-active' : ''}`}
           >
             {item}
           </div>
@@ -58,21 +58,21 @@ const Projects = () => {
       <motion.div
         animate={animateCard}
         transition={{duration: 0.5, delayChildren: 0.5 }}
-        className="app__project-portfolio"
+        className="app__portfolio-projects"
 
       >
-        {filterProjects.map((project, index) => (
-          <div className="app__project-item app__flex" key={index}>
-            <div className="app__project-img app__flex">
-              <img src={project.image} alt={project.name} />
+        {filterPortfolio.map((portfolio, index) => (
+          <div className="app__portfolio-item app__flex" key={index}>
+            <div className="app__portfolio-img app__flex">
+              <img src={portfolio.image} alt={portfolio.name} />
               <motion.div
                 whileInView={{ opacity: [1, 0] }}
                 whileHover={{opacity: [0, 1]}}
                 transition={{ duration: 0.25, ease: 'easeInOut', staggerChildren: 0.5}}
-                className="app__project-hover app__flex"
+                className="app__portfolio-hover app__flex"
 
               >
-                <a href={project.projectLink} target="_blank" rel="noreferrer">
+                <a href={portfolio.portfolioLink} target="_blank" rel="noreferrer">
                   <motion.div
                     whileInView={{scale: [0, 1]}}
                     whileHover={{scale: [1, 0.9]}}
@@ -82,7 +82,7 @@ const Projects = () => {
                     <AiFillEye />
                   </motion.div>
                 </a>
-                <a href={project.codeLink} target="_blank" rel="noreferrer">
+                <a href={portfolio.codeLink} target="_blank" rel="noreferrer">
                   <motion.div
                     whileInView={{scale: [0, 1]}}
                     whileHover={{scale: [1, 0.9]}}
@@ -95,23 +95,23 @@ const Projects = () => {
               </motion.div>
             </div>
 
-            <div className="app__project-content app__flex">
-              <h4 className="bold-text">{project.title}</h4>
-              <p className="p-text" style={{ marginTop: 10 }}>{project.description}</p>
-              <div className="app__project-content-links">
-              <a href={project.projectLink} target="_blank" rel="noreferrer">
+            <div className="app__portfolio-content app__flex">
+              <h4 className="bold-text">{portfolio.title}</h4>
+              <p className="p-text" style={{ marginTop: 10 }}>{portfolio.description}</p>
+              <div className="app__portfolio-content-links">
+              <a href={portfolio.portfolioLink} target="_blank" rel="noreferrer">
                   <div className="app__flex">
                     <AiFillEye />
                   </div>
                 </a>
-                <a href={project.codeLink} target="_blank" rel="noreferrer">
+                <a href={portfolio.codeLink} target="_blank" rel="noreferrer">
                   <div className="app__flex">
                     <AiFillGithub />
                   </div>
                 </a>
               </div>
-              <div className="app__project-tag app__flex">
-                <p className="p-text">{project.tags[0]}</p>
+              <div className="app__portfolio-tag app__flex">
+                <p className="p-text">{portfolio.tags[0]}</p>
               </div>
             </div>
           </div>
@@ -121,4 +121,4 @@ const Projects = () => {
   )
 }
 
-export default AppWrap(MotionWrap(Projects, 'app__projects'),'projects','app__whitebg')
+export default AppWrap(MotionWrap(Portfolio, 'app__portfolio'),'portfolio','app__whitebg')

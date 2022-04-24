@@ -19,7 +19,7 @@ const Navbar = () => {
                 <p className='p-text'>McLean-Dev</p>
             </div>
             <ul className="app__navbar-links">
-                {['home', 'projects', 'about', 'contact'].map((item) => (
+                {['home', 'portfolio', 'about', 'contact'].map((item) => (
                     <li className="app__flex p-text" key={`link-${item}`}>
                         <div />
                         <a href={`#${item}`}>{item}</a>
@@ -39,7 +39,7 @@ const Navbar = () => {
                             <HiX onClick={() => setToggle(false)} />
                             <ul className="app__navbar-links">
 
-                                {['home', 'projects', 'about', 'contact'].map((item) => (
+                                {['home', 'portfolio', 'about', 'contact'].map((item) => (
                                     <li key={item}>
 
                                         <a href={`#${item}`} onClick={() => setToggle(false)}>{item}</a>
