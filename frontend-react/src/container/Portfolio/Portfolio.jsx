@@ -72,7 +72,7 @@ const Portfolio = () => {
                 className="app__portfolio-hover app__flex"
 
               >
-                <a href={portfolio.portfolioLink} target="_blank" rel="noreferrer">
+                <a href={portfolio.projectLink} target="_blank" rel="noreferrer">
                   <motion.div
                     whileInView={{scale: [0, 1]}}
                     whileHover={{scale: [1, 0.9]}}
