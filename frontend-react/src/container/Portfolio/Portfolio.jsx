@@ -14,7 +14,7 @@ const Portfolio = () => {
   const [filterPortfolio, setFilterPortfolio] = useState([])
 
   useEffect(() => {
-    const query = '*[_type == "portfolio"]';
+    const query = '*[_type == "portfolio"] | order(order asc)';
     axios.get('/.netlify/functions/getter', { params: { "query": `${query}`  } })
     .then((data) => {      
       setPortfolio(data.data);
