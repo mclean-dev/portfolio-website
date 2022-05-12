@@ -45,7 +45,7 @@ const Portfolio = () => {
       <h2 className='head-text'>My Creative <span>Portfolio</span></h2>
 
       <div className="app__portfolio-filter">
-        {['UI/UX', 'Web App', 'Mobile App', 'React JS', 'All'].map((item, index) => (
+        {['UI/UX', 'Web App', 'React JS', 'All'].map((item, index) => (
           <div
             key={index}
             onClick={() => handlePortfolioFilter(item)}
