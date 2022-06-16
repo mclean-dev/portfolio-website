@@ -9,6 +9,7 @@ export default {
         type: 'string',
       },
     
+
       {
         name: 'description',
         title: 'Description',
@@ -30,6 +31,31 @@ export default {
         type: 'image',
         options: {
           hotspot: true,
+        },
+      },
+      {
+        name: 'images',
+        type: 'array',
+        title: 'Images',
+        of: [
+          {
+            name: 'image',
+            type: 'image',
+            title: 'Image',
+            options: {
+              hotspot: true,
+            },
+            fields: [
+              {
+                name: 'alt',
+                type: 'string',
+                title: 'Alternative text',
+              },
+            ],
+          },
+        ],
+        options: {
+          layout: 'grid',
         },
       },
    
