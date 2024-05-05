@@ -119,3 +119,18 @@
         
     }
 }
+
+.app__footer-policies {
+    ul {
+        padding-left: 2rem;
+    }
+    >* {
+        margin: 1rem;
+    }
+    >p {
+        padding-left: 1rem;
+    }
+    h4 {
+        padding-top: 2rem;
+    }
+}
